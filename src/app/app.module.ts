@@ -19,6 +19,11 @@ import {FormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { ResumeComponent } from './resume/resume.component';
+import { ProjectsComponent } from './projects/projects.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CvComponent
+    CvComponent,
+    ResumeComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatCardModule,
     FormsModule,
+    MatDividerModule,
+    MatSidenavModule,
     ToastrModule.forRoot({
       closeButton: true,
       progressBar: true,

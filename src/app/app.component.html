@@ -1,6 +1,15 @@
-<mat-toolbar color="primary">
+
+<mat-toolbar color="primary" *ngIf="notLog">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
   <div class="container d-flex ">
-    <span routerLink="/" style="cursor:pointer;">Todo Maker</span>
+    <span routerLink="/" style="cursor:pointer;">CV-Thèque</span>
     <span class="spacer"></span>
     <div class="d-flex justify-content-around icons" style="width: 100px;" *ngIf="showMenu">
       <div class="d-flex align-items-center mr-2 px-2">
@@ -22,6 +31,39 @@
     </div>
   </div>
 </mat-toolbar>
-<div class="container py-3">
-  <router-outlet></router-outlet>
-</div>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img
+                src="assets/sheima.jpg"
+    >
+
+
+    <h3>{{username | titlecase}}</h3>
+    <p class="designation">Software Engineer</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/home">
+      <mat-icon>drafts</mat-icon>
+      <span>CV</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/projects">
+      <mat-icon>folder</mat-icon>
+      <span>Projects</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+ 
+
+
+
+  

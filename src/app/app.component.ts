@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import {ApiService} from './services/api.service';
 import jwtDecode from 'jwt-decode';
+import { Router,NavigationEnd  } from '@angular/router';
+import { delay,filter } from 'rxjs/operators';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+
 
 @Component({
   selector: 'app-root',
@@ -8,10 +14,25 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
   title = 'cvtheque-front';
   showMenu: boolean = true; 
   username = '';
-  constructor(private apiService: ApiService) {
+  job= '';
+  public notLog: boolean = true;
+  constructor(private observer: BreakpointObserver,private apiService: ApiService,private router: Router) {
+    router.events.pipe(filter(event => event instanceof NavigationEnd))
+          .subscribe((event: any) => 
+           {
+             if(event.url === '/login'){
+              this.notLog = false
+             }
+             else {
+               this.notLog= true;
+             }
+             
+           });
   }
 
   ngOnInit() {
@@ -26,6 +47,33 @@ export class AppComponent {
         this.showMenu = true;
       }
     });
+    
+    
+  }
+  ngAfterViewInit() {
+    this.observer
+      .observe(['(max-width: 800px)'])
+      .pipe(delay(1), untilDestroyed(this))
+      .subscribe((res) => {
+        if (res.matches) {
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
+        } else {
+          this.sidenav.mode = 'side';
+          this.sidenav.open();
+        }
+      });
+
+    this.router.events
+      .pipe(
+        untilDestroyed(this),
+        filter((e) => e instanceof NavigationEnd)
+      )
+      .subscribe(() => {
+        if (this.sidenav.mode === 'over') {
+          this.sidenav.close();
+        }
+      });
   }
 
   logout() {
