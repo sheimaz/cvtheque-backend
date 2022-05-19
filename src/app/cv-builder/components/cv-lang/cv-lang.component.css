@@ -1,0 +1,23 @@
+
+.lang{
+  margin-top:10px;
+  display: inline;
+}
+.lang__text{
+font-size: 20px;
+margin-right: 20px;
+}
+.lang__slider{
+    width: 60%;
+    
+}
+:host ::ng-deep .slide .mat-slider-thumb {
+    background-color: #562AD5;
+  }
+  host ::ng-deep .slide .mat-slider-thumb-label {
+    background-color: #562AD5;
+  }
+  
+  :host ::ng-deep .slide .mat-slider-track-fill {
+    background-color: #562AD5;
+  }

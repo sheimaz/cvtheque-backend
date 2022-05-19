@@ -15,14 +15,28 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import {FormsModule} from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
+
 import { ResumeComponent } from './resume/resume.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { CvSkillsComponent } from './cv-builder/containers/cv-skills/cv-skills.component';
+import { CvUserComponent } from './cv-builder/components/cv-user/cv-user.component';
+import { CvRatingComponent } from './cv-builder/components/cv-rating/cv-rating.component';
+import { CvChipsComponent } from './cv-builder/components/cv-chips/cv-chips.component';
+import { CvBuilderComponent } from './cv-builder/cv-builder.component';
+import { CvLangComponent } from './cv-builder/components/cv-lang/cv-lang.component';
+import { CvAboutComponent } from './cv-builder/components/cv-about/cv-about.component';
+import { CvProfessionalComponent } from './cv-builder/components/cv-professional/cv-professional.component';
+import { UsersComponent } from './users/users/users.component';
 
 
 @NgModule({
@@ -33,7 +47,17 @@ import { ProjectsComponent } from './projects/projects.component';
     RegisterComponent,
     CvComponent,
     ResumeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    CvBuilderComponent,
+    CvSkillsComponent,
+    CvUserComponent,
+    CvRatingComponent,
+    CvChipsComponent,
+    CvLangComponent,
+    CvAboutComponent,
+    CvProfessionalComponent,
+    UsersComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -45,11 +69,16 @@ import { ProjectsComponent } from './projects/projects.component';
     MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
     MatInputModule,
+    MatChipsModule,
     MatCardModule,
     FormsModule,
+    ReactiveFormsModule,
     MatDividerModule,
     MatSidenavModule,
+    MatSliderModule,
+    MatStepperModule,
     ToastrModule.forRoot({
       closeButton: true,
       progressBar: true,

@@ -1,0 +1,19 @@
+<div class="skill__header">
+  <span class="skill__header__text">{{ skillSection }}:</span
+  ><app-cv-rating
+    [editable]="editable"
+    [rating]="rating"
+    (ratingUpdated)="onRatingChanged($event)"
+    class="skill__header__rating"
+  ></app-cv-rating>
+</div>
+<div>
+  <p class="skill__text" *ngIf="!editable">
+    <span *ngFor="let skill of mainSkills"> {{ skill }} ,</span>
+  </p>
+  <app-cv-chips
+    [mainSkills]="mainSkills"
+    [allSkills]="allSkills"
+    *ngIf="editable"
+  ></app-cv-chips>
+</div>

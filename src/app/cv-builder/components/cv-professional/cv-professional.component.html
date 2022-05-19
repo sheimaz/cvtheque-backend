@@ -1,0 +1,58 @@
+<mat-stepper
+  labelPosition="bottom"
+  #stepper
+  (selectionChange)="selectionChange($event)"
+>
+  <mat-step [stepControl]="firstFormGroup" ngFor="let exp of experiences">
+    <ng-template matStepLabel>
+      <span class="jobposition">{{ exp.position }}</span
+      ><br />
+      <span class="jobplace">{{ exp.company }}</span
+      ><br />
+      <span class="job__date">{{ exp.date }}</span>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Now</ng-template>
+
+
+  </mat-step>
+</mat-stepper>
+<form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()"ngIf="editable">
+  <mat-form-field class="cvforminput">
+    <mat-label>Position</mat-label>
+    <input
+      matInput
+      [(ngModel)]="experiences[step].position"
+      placeholder="Backend Developer"
+      formControlName="position"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field class="cvforminput">
+    <mat-label>Company</mat-label>
+    <input
+      matInput
+      [(ngModel)]="experiences[step].company"
+      placeholder="Proxym-IT"
+      formControlName="company"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field class="cvforminput">
+    <mat-label>Year</mat-label>
+    <input
+      matInput
+      [(ngModel)]="experiences[step].date"
+      placeholder="2022"
+      formControlName="date"
+      required
+    />
+  </mat-form-field>
+  <div>
+    <button mat-button type="submit" [disabled]="!firstFormGroup.valid">
+      Add Experience
+    </button>
+    <a mat-button (click)="onSave()">Save</a>
+  </div>
+</form>

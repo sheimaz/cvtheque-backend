@@ -1,0 +1,10 @@
+<div class="container">
+    <button mat-icon-button  class="rating__button"
+    [disabled]="!editable"
+      *ngFor="let ratingId of ratingArray;
+      index as i" [id]="'star_'+i" (click)="calculateRating(i+1)">
+         <mat-icon class="rating__icon" >
+             {{ iconStatus(i) }}
+         </mat-icon>
+     </button>
+ </div>

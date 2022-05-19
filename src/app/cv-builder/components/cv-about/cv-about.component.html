@@ -1,0 +1,8 @@
+<div class="form-group" *ngIf="editable">
+    <textarea class="form-control about_text" 
+    [(ngModel)]="about" 
+    rows="10"></textarea>  
+</div>
+<p class="about_text" *ngIf="!editable">
+{{about}}
+</p>

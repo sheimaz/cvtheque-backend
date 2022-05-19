@@ -9,6 +9,8 @@ import {logger} from 'codelyzer/util/logger';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  name_text: string = ""
+
 
   constructor(private apiService: ApiService) {
   }
@@ -21,8 +23,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const {username, password} = registerForm.value;
-    this.apiService.register(username, password).subscribe(res => {
+    const {username, password, job, role, departement} = registerForm.value;
+    this.apiService.register(username, password, job, role, departement).subscribe(res => {
       registerForm.reset();
     });
 

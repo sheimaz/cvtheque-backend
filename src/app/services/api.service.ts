@@ -16,7 +16,7 @@ export class ApiService {
   constructor(private http: HttpClient,
               private router: Router,
               private toast: ToastrService) {
-    this.validateJWT();
+   // this.validateJWT();
   }
 
   get jwtUserToken(): Observable<string> {
@@ -32,9 +32,20 @@ export class ApiService {
     });
   }
 
-  verifyToken(token: string) {
-    return this.http.post(`${this.API_URL}/auth/verifyToken`, {token});
+  /* Getting All users */
+  getAllusers(): Observable<any> {
+    this.token = localStorage.getItem("act");
+    return this.http.get(`${this.API_URL}/users`,{
+      headers: {
+        Authorization: 'Bearer '+this.token
+      }
+    }
+    );
   }
+
+  /*verifyToken(token: string) {
+    return this.http.post(`${this.API_URL}/auth/verifyToken`, {token});
+  } */
 
   login(username: string, password: string) {
 
@@ -49,7 +60,7 @@ export class ApiService {
             positionClass: 'toast-top-center'
           }).onHidden.toPromise().then(() => {
             this.jwtToken$.next(this.token);
-            localStorage.setItem('act', btoa(this.token));
+            localStorage.setItem('act', this.token);
             this.router.navigateByUrl('/').then();
           });
         }
@@ -61,9 +72,9 @@ export class ApiService {
       });
   }
 
-  register(username: string, password: string) {
+  register(username: string, password: string, job: string, role:string, departement: string) {
 
-    return this.http.post(`${this.API_URL}/auth/register`, {username, password}).pipe(
+    return this.http.post(`${this.API_URL}/auth/register`, {username, password, job, role, departement}).pipe(
       // @ts-ignore
       catchError((err: HttpErrorResponse) => {
         this.toast.error(err.error.message, '', {
@@ -71,6 +82,7 @@ export class ApiService {
         });
       })
     );
+    
   }
 
 
@@ -95,6 +107,14 @@ export class ApiService {
     });
   }
 
+  createCv(name: string, job: string) {
+    return this.http.post(`${this.API_URL}/create`, {name, job}, {
+      headers: {
+        Authorization: `Bearer ${this.token}`
+      }
+    });
+  }
+
   updateStatus(statusValue: string, cvId: number) {
     return this.http.patch(`${this.API_URL}/cvs/${cvId}`, {status: statusValue}, {
       headers: {
@@ -111,11 +131,26 @@ export class ApiService {
     );
   }
 
+  deleteuser(userId: number) {
+    return this.http.delete(`${this.API_URL}/users/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${this.token}`
+      }}).pipe(
+        tap(res => {
+          // @ts-ignore
+          if (res.success) {
+            this.toast.success('user deleted successfully');
+          }
+        })
+      );
+    }
+
   deletecv(cvId: number) {
     return this.http.delete(`${this.API_URL}/cvs/${cvId}`, {
       headers: {
         Authorization: `Bearer ${this.token}`
       }
+      
     }).pipe(
       tap(res => {
         // @ts-ignore
@@ -127,7 +162,7 @@ export class ApiService {
   }
 
 
-  private validateJWT() {
+ /* private validateJWT() {
     const fetchedToken = localStorage.getItem('act');
 
     if (fetchedToken) {
@@ -157,7 +192,7 @@ export class ApiService {
         });
       }
     }
-  }
+  }*/
 
 
 }

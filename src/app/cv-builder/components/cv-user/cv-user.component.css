@@ -1,0 +1,32 @@
+.editable{
+    border:none;
+    outline:none;
+    background:transparent;
+ }
+.logo{
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top:50px;
+    margin-bottom: 20px;
+ }
+
+.user > Input{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+    /* background: transparent;
+    outline:none;
+    border-style: none none solid none */
+}
+.editable__text{
+    border-style: none none solid none 
+}
+.user_name{
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    color: #562AD5;
+    font-size: 30px !important;
+    width: 100%;
+}

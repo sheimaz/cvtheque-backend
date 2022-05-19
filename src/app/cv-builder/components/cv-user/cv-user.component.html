@@ -1,0 +1,24 @@
+<img src="assets/cv_logo_icon.png" alt="Proxym logo" class="logo" />
+<div class="user">
+  <input
+    type="text"
+    [(ngModel)]="name"
+    [readonly]="!editable"
+    [ngClass]="{'editable__text': editable}"
+    class="editable text-uppercase user_name"
+  />
+  <input
+    type="text"
+    [(ngModel)]="job"
+    [readonly]="!editable"
+    [ngClass]="{'editable__text': editable}"
+    class="editable text-uppercase"
+  />
+  <input
+    type="text"
+    [(ngModel)]="experience"
+    [readonly]="!editable"
+    [ngClass]="{'editable__text': editable}"
+    class="editable text-capitalize"
+  />
+</div>

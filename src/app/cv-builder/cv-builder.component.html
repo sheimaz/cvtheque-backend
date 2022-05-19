@@ -1,0 +1,44 @@
+<div class="container cv">
+    <div class="row cv__row">
+      <div class="col-4 cv__side__left">
+          <div class="cv__side__left__container">
+            <app-cv-user [editable]="editable" [name]="name" [job]="job" [experience]="experience"></app-cv-user>
+                <div class="cv__skills">
+                  <h2>SKILLS</h2>
+                  <app-cv-skills [editable]="editable" [skillSection]="skillFirstSection" [mainSkills]="mainSkills" [allSkills]="allSkills"></app-cv-skills>
+                  <app-cv-skills [editable]="editable" [skillSection]="skillSecondSection" [mainSkills]="mainSkills" [allSkills]="allSkills"></app-cv-skills>
+                  <app-cv-skills [editable]="editable" [skillSection]="skillFirstSection" [mainSkills]="mainSkills" [allSkills]="allSkills"></app-cv-skills>
+                  <app-cv-skills [editable]="editable" [skillSection]="skillSecondSection" [mainSkills]="mainSkills" [allSkills]="allSkills"></app-cv-skills>
+                </div>
+                <div class="cv__languages">
+                  <h1>LANGUAGES</h1>
+                  <app-cv-lang [text]="lang" [editable]="editable"></app-cv-lang>
+                  <app-cv-lang [text]="lang" [editable]="editable"></app-cv-lang>
+                  <app-cv-lang [text]="lang" [editable]="editable"></app-cv-lang>
+                </div>
+            </div>
+      </div>
+      
+      <div class="col-8 cv__side__right">
+        <div class="cv__side__right__container">
+          <button type="button" (click)="editableHandler()">EDIT</button>
+          <div class="cv__side__right__logo">
+            <img src="assets/cv_builder_uLogo.png" alt="Proxym logo" class="cv__side__right__logo_under" />
+            <img src="assets/proxym_cv_logo.jpg" alt="Proxym logo" class="cv__side__right__logo_main" />
+          </div>
+          <div class="cv__side__right__about">
+            <h1 class="cv__side__right__Header">About Me</h1>
+            <div class="cv__side__right__Header__box"></div>
+            <app-cv-about [editable]="editable" [about]="about"></app-cv-about>
+         </div>
+         <div class="cv__side__right__section">
+          <h1 class="cv__side__right__Header">PROFESSIONAL EXPERIENCE </h1>
+          <div class="cv__side__right__Header__box"></div>
+          <app-cv-professional></app-cv-professional>
+       </div>
+          
+          
+        </div>
+        
+      </div>
+  </div>

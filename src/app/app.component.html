@@ -35,28 +35,37 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
     <img
-                src="assets/sheima.jpg"
-    >
+                src="assets/user.png">
 
 
     <h3>{{username | titlecase}}</h3>
-    <p class="designation">Software Engineer</p>
 
     <mat-divider></mat-divider>
-
+    <button mat-button class="menu-button" routerLink="/create">
+      <mat-icon>drafts</mat-icon>
+      <span>Add CV</span>
+    </button>
     <button mat-button class="menu-button" routerLink="/home">
       <mat-icon>drafts</mat-icon>
       <span>CV</span>
+    </button>
+    
+    <button mat-button class="menu-button" routerLink="/register">
+      <mat-icon>person_add</mat-icon>
+      <span>Add new User</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/users">
+    <mat-icon>group</mat-icon>
+    <span>Manage Users</span>
     </button>
     <button mat-button class="menu-button" routerLink="/projects">
       <mat-icon>folder</mat-icon>
       <span>Projects</span>
     </button>
-
     <mat-divider></mat-divider>
 
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

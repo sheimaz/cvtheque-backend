@@ -1,0 +1,10 @@
+.rating__icon{
+    color: #562AD5;
+    font-size: 20px;
+}
+.rating__button{
+    margin-left: -5px;
+}
+button{
+    width: 30px;
+}

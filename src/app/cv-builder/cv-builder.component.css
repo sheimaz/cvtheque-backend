@@ -1,0 +1,85 @@
+.cv {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  margin-top: 20px !important;
+  height: 100%;
+}
+.cv__row {
+  height: 180%;
+}
+
+.cv__side__left {
+  background-color: #ececec;
+  position: relative;
+}
+.cv__side__left__container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cv__skills {
+  margin-top: 50px;
+}
+.cv__skills > h2 {
+  font-family: "Zilla Slab", serif;
+  font-size: 25px;
+}
+.cv__languages > h1 {
+  font-family: "Zilla Slab", serif;
+  font-size: 25px;
+  font-weight: 900;
+}
+.cv__languages {
+  margin-top: 120px;
+  font-weight: 700;
+}
+
+.cv__side__right {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+.cv__side__right__container {
+  width: 90%;
+}
+.cv__side__right__logo {
+  float: right;
+  opacity: 0.7;
+  margin-right: 50px;
+}
+.cv__side__right__logo_under {
+  margin-right: -140px;
+  width: 90px;
+
+ 
+}
+.cv__side__right__logo_main {
+  width: 170px;
+   z-index: 99;
+  
+}
+.cv__side__right__about{
+   margin-top:120px;
+   padding-bottom: 30px;
+   border-bottom: 2px solid #562AD5;
+}
+.cv__side__right__Header{
+   font-family: "Zilla Slab", serif;
+   font-size: 25px;
+   font-weight: 900;
+   color: #562AD5;
+   text-transform: uppercase;
+}
+.cv__side__right__Header__box{
+   width: 80px;
+   height: 20px;
+   background-color: #FFCC29;
+   margin-top: -30px;
+   margin-left: -10px;
+}
+.cv__side__right__section{
+  margin-top:30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #562AD5;
+}

@@ -6,6 +6,7 @@ import { delay,filter } from 'rxjs/operators';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { User } from 'src/app/users/user';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class AppComponent {
   showMenu: boolean = true; 
   username = '';
   job= '';
+  users:User[]=[] ;
+
   public notLog: boolean = true;
   constructor(private observer: BreakpointObserver,private apiService: ApiService,private router: Router) {
     router.events.pipe(filter(event => event instanceof NavigationEnd))
@@ -50,7 +53,7 @@ export class AppComponent {
     
     
   }
-  ngAfterViewInit() {
+ /* ngAfterViewInit() {
     this.observer
       .observe(['(max-width: 800px)'])
       .pipe(delay(1), untilDestroyed(this))
@@ -62,7 +65,7 @@ export class AppComponent {
           this.sidenav.mode = 'side';
           this.sidenav.open();
         }
-      });
+      }); 
 
     this.router.events
       .pipe(
@@ -74,7 +77,7 @@ export class AppComponent {
           this.sidenav.close();
         }
       });
-  }
+  } */
 
   logout() {
     this.username = '';

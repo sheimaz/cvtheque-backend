@@ -1,0 +1,56 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+
+<div class="container-fluid">
+		<div class="col-md-9">
+		    <div class="card">
+		        <div class="card-body">
+		            <div class="row">
+		                <div class="col-md-2 border-right">
+		                    <h4>User</h4>
+		                </div>
+		                <div class="col-md-6">
+		                    <button type="button" class="btn btn-sm btn-primary" routerLink="/register">Add User</button>
+		                </div>
+		                
+		            </div>
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <table class="table table-hover" margin-left: auto margin-right: auto>
+                                <thead class="bg-light ">
+                                  <tr>
+                                   
+                                    <th>Username</th>
+                                    <th>JOB</th>
+                                    <th>EMAIL</th>
+                                    <th>Role</th>
+                                    <th>DEPARTEMENT</th>
+                                    <th>Edit</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="users" *ngFor="let user of users">
+                                   
+                                    <td class="username">{{user.username}}<a href="#"></a></td>
+                                    <td class="job">{{user.job}}</td>
+                                    <td class="email">{{user.email}}</td>
+                                    <td class="role">{{user.role}}</td>
+                                    <td class="departement">{{user.departement}}<a href="#"></a></td>
+                                    <td>
+                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                           <a (click)="delete(user.id)"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                  </tr>                
+                                </tbody>
+                              </table>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>

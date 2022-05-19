@@ -1,0 +1,26 @@
+<mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>All Skills</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip
+        *ngFor="let skill of mainSkills"
+        (removed)="remove(skill)">
+        {{skill}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="Add Skill..."
+        #skillInput
+        [formControl]="skillCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+        {{skill}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
